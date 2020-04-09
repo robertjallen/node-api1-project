@@ -19,17 +19,17 @@ Use Node.js and Express to build an API that performs CRUD operations on users.
 ✔️- Add a new `package.json`.
 ✔️- Add a `server` script to `package.json` that runs the API using `nodemon`.
 
-### Write endpoints
+✔️### Write endpoints
 
 Add the code necessary to create a Web API and implement the following _endpoints_:
 
 | Method | URL            | Description                                                                                            |
 | ------ | -------------- | ------------------------------------------------------------------------------------------------------ |
-| POST   | /api/users     | Creates a user using the information sent inside the `request body`.                                   |
-| GET    | /api/users     | Returns an array users.                                                                                |
-| GET    | /api/users/:id | Returns the user object with the specified `id`.                                                       |
-| DELETE | /api/users/:id | Removes the user with the specified `id` and returns the deleted user.                                 |
-| PATCH  | /api/users/:id | Updates the user with the specified `id` using data from the `request body`. Returns the modified user |
+✔️| POST   | /api/users     | Creates a user using the information sent inside the `request body`.                                   |
+✔️| GET    | /api/users     | Returns an array users.                                                                                |
+✔️| GET    | /api/users/:id | Returns the user object with the specified `id`.                                                       |
+✔️| DELETE | /api/users/:id | Removes the user with the specified `id` and returns the deleted user.                                 |
+✔️| PATCH  | /api/users/:id | Updates the user with the specified `id` using data from the `request body`. Returns the modified user |
 
 #### User Schema
 
