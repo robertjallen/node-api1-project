@@ -38,7 +38,7 @@ server.post("/api/users", (req, res) => {
 	// we don't want to create a user with an empty name, so check for it
 	if (!req.body.name) {
 		return res.status(400).json({
-			message: "Need a user name!",
+			message: "Please provide name and bio for the user.",
 		})
 	}
 
