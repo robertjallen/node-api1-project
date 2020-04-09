@@ -33,7 +33,7 @@ Add the code necessary to create a Web API and implement the following _endpoint
 
 #### User Schema
 
-Each User _resource_ should conform to the following structure (AKA schema):
+✔️Each User _resource_ should conform to the following structure (AKA schema):
 
 ```js
 {

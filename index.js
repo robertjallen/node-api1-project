@@ -43,7 +43,8 @@ server.post("/api/users", (req, res) => {
 	}
 
 	const newUser = db.createUser({
-		name: req.body.name,
+        name: req.body.name,
+        bio: req.body.bio
 	})
 
 	// 201 status code means a resource was successfully created
