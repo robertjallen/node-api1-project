@@ -47,12 +47,12 @@ Add the code necessary to create a Web API and implement the following _endpoint
 
 When the client makes a `POST` request to `/api/users`:
 
-- If the request body is missing the `name` or `bio` property:
+✔️- If the request body is missing the `name` or `bio` property:
 
-  - respond with HTTP status code `400` (Bad Request).
-  - return the following JSON response: `{ errorMessage: "Please provide name and bio for the user." }`.
+  ✔️- respond with HTTP status code `400` (Bad Request).
+  ✔️- return the following JSON response: `{ errorMessage: "Please provide name and bio for the user." }`.
 
-- If the information about the _user_ is valid:
+✔️- If the information about the _user_ is valid:
 
   - save the new _user_ the the database.
   - respond with HTTP status code `201` (Created).
@@ -62,13 +62,13 @@ When the client makes a `POST` request to `/api/users`:
   - respond with HTTP status code `500` (Server Error).
   - return the following JSON object: `{ errorMessage: "There was an error while saving the user to the database" }`.
 
-When the client makes a `GET` request to `/api/users`:
+✔️When the client makes a `GET` request to `/api/users`:
 
 - If there's an error in retrieving the _users_ from the database:
   - respond with HTTP status code `500`.
   - return the following JSON object: `{ errorMessage: "The users information could not be retrieved." }`.
 
-When the client makes a `GET` request to `/api/users/:id`:
+✔️When the client makes a `GET` request to `/api/users/:id`:
 
 - If the _user_ with the specified `id` is not found:
 

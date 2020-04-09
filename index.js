@@ -13,10 +13,14 @@ server.get("/", (req, res) => {
 
 server.get("/api/users", (req, res) => {
 	// don't worry about the function implementation yet, just call it.
-	// it's essentially "faking" a real database
-	const users = db.getUsers()
-
-	res.json(users)
+    // it's essentially "faking" a real database
+    
+    const users = db.getUsers()
+    if(users){
+        res.json(users)
+    }else{
+        res.status(500).json({ errorMessage: "The users information could not be retrieved." })
+    }
 })
 
 server.get("/api/users/:id", (req, res) => {
@@ -27,11 +31,17 @@ server.get("/api/users/:id", (req, res) => {
 
 	if (user) {
 		res.json(user)
-	} else {
-		res.status(404).json({
-			message: "User not found",
+    } 
+    if(!user){
+        res.status(404).json({
+			message: "The user with the specified ID does not exist.",
 		})
-	}
+    }else{
+        res.status(500).json({
+			message: "The user information could not be retrieved.",
+		})
+    }
+    
 })
 
 server.post("/api/users", (req, res) => {
