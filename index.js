@@ -11,6 +11,9 @@ server.get("/", (req, res) => {
 	res.json({ message: "hello, world" })
 })
 
+//--------------------------------
+//       READ
+//-----------------------------------
 server.get("/api/users", (req, res) => {
 	// don't worry about the function implementation yet, just call it.
     // it's essentially "faking" a real database
@@ -42,6 +45,9 @@ server.get("/api/users/:id", (req, res) => {
     } 
 })
 
+//----------------------------
+//     CREATE
+//---------------------------
 server.post("/api/users", (req, res) => {
 	// we don't want to create a user with an empty name, so check for it
 	if (!req.body.name) {
@@ -59,6 +65,9 @@ server.post("/api/users", (req, res) => {
 	res.status(201).json(newUser)
 })
 
+//---------------------------------------
+//           UPDATE
+//----------------------------------------
 server.put("/api/users/:id", (req, res) => {
 	const user = db.getUserById(req.params.id)
 
@@ -77,13 +86,17 @@ server.put("/api/users/:id", (req, res) => {
 	}
 })
 
+//---------------------------------------
+//           DELETE
+//---------------------------------------
 server.delete("/api/users/:id", (req, res) => {
-	const user = db.getUserById(req.params.id)
 
-	if (user) {
-		db.deleteUser(user.id)
-		// 204 is just a successful empty response
-		res.status(204).end()
+	const found = db.getUserById(req.params.id)
+
+	if (found) {
+		db.deleteUser(req.params.id)
+		// response returns id
+		res.status(200).json(found.id)
 	} else {
 		res.status(404).json({
 			message: "User not found",
