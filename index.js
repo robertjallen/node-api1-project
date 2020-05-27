@@ -73,9 +73,11 @@ server.put("/api/users/:id", (req, res) => {
 
 	// can't update a user that doesn't exist, so make sure it exists first
 	if (user) {
-		const updatedUser = db.updateUser(user.id, {
+		const updatedUser = db.updateUser(user, {
 			// use a fallback value if no name is specified, so it doesn't empty the field
+			id: req.body.id,
 			name: req.body.name || user.name,
+			bio: req.body.bio || user.bio
 		})
 
 		res.json(updatedUser)
